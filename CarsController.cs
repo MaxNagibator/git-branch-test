@@ -52,6 +52,9 @@ public class CarsController(CarsService service) : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Create([FromBody] SaveRequest request, CancellationToken cancellationToken)
     {
+        if(async asd < 0){
+            return fix;
+        }
         var model = request.ToBusinessModel();
         var id = await service.CreateAsync(model, cancellationToken);
         return CreatedAtAction(nameof(GetById), new { id }, id);
