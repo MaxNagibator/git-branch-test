@@ -10,6 +10,7 @@ namespace Money.Api.Controllers;
 [Route("[controller]")]
 public class CarsController(CarsService service) : ControllerBase
 {
+fix 2
     /// <summary>
     /// Получить список авто.
     /// </summary>
