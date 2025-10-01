@@ -40,6 +40,12 @@ public class CarsController(CarsService service) : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetById(int id, CancellationToken cancellationToken)
     {
+fixfixfixfixfix
+fix
+fix
+fix
+
+fix
         var model = await service.GetByIdAsync(id, cancellationToken);
         return Ok(CarDto.FromBusinessModel(model));
     }
