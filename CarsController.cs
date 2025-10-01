@@ -20,6 +20,10 @@ public class CarsController(CarsService service) : ControllerBase
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> Get(CancellationToken cancellationToken)
     {
+        if(a > 0)
+        {
+            return null;
+        }
         var models = await service.GetAsync(cancellationToken);
         return Ok(models.Select(CarDto.FromBusinessModel));
     }
@@ -103,6 +107,22 @@ public class CarsController(CarsService service) : ControllerBase
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Restore(int id, CancellationToken cancellationToken)
+    {
+        await service.RestoreAsync(id, cancellationToken);
+        return NoContent();
+    }
+
+    /// <summary>
+    /// Восстановить авто по идентификатору.
+    /// </summary>
+    /// <param name="id">Идентификатор категории.</param>
+    /// <param name="cancellationToken">Токен отмены запроса.</param>
+    [HttpPost("{id:int}/FixMethod")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> FixMethod(int id, CancellationToken cancellationToken)
     {
         await service.RestoreAsync(id, cancellationToken);
         return NoContent();
