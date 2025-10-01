@@ -41,23 +41,6 @@ public class CarsController(CarsService service) : ControllerBase
     }
 
     /// <summary>
-    /// Создать авто.
-    /// </summary>
-    /// <param name="request">Данные для создания новой категории.</param>
-    /// <param name="cancellationToken">Токен отмены запроса.</param>
-    /// <returns>Идентификатор созданной категории.</returns>
-    [HttpPost("")]
-    [ProducesResponseType(typeof(int), StatusCodes.Status201Created)]
-    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Create([FromBody] SaveRequest request, CancellationToken cancellationToken)
-    {
-        var model = request.ToBusinessModel();
-        var id = await service.CreateAsync(model, cancellationToken);
-        return CreatedAtAction(nameof(GetById), new { id }, id);
-    }
-
-    /// <summary>
     /// Обновить авто.
     /// </summary>
     /// <param name="id">Идентификатор обновляемой категории.</param>
@@ -68,7 +51,7 @@ public class CarsController(CarsService service) : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Update(int id, [FromBody] SaveRequest request, CancellationToken cancellationToken)
+    public async Task<IActionResult> UpdateTask1(int id, [FromBody] SaveRequest request, CancellationToken cancellationToken)
     {
         var model = request.ToBusinessModel();
         model.Id = id;
