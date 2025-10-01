@@ -107,4 +107,52 @@ public class CarsController(CarsService service) : ControllerBase
         await service.RestoreAsync(id, cancellationToken);
         return NoContent();
     }
+
+    /// <summary>
+    /// Восстановить авто по идентификатору.
+    /// </summary>
+    /// <param name="id">Идентификатор категории.</param>
+    /// <param name="cancellationToken">Токен отмены запроса.</param>
+    [HttpPost("{id:int}/Restore")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Restore1(int id, CancellationToken cancellationToken)
+    {
+        await service.RestoreAsync(id, cancellationToken);
+        return NoContent();
+    }
+
+    /// <summary>
+    /// Восстановить авто по идентификатору.
+    /// </summary>
+    /// <param name="id">Идентификатор категории.</param>
+    /// <param name="cancellationToken">Токен отмены запроса.</param>
+    [HttpPost("{id:int}/Restore")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Restore2(int id, CancellationToken cancellationToken)
+    {
+        await service.RestoreAsync(id, cancellationToken);
+        return NoContent();
+    }
+
+    /// <summary>
+    /// Восстановить авто по идентификатору.
+    /// </summary>
+    /// <param name="id">Идентификатор категории.</param>
+    /// <param name="cancellationToken">Токен отмены запроса.</param>
+    [HttpPost("{id:int}/Restore")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Restore3(int id, CancellationToken cancellationToken)
+    {
+        await service.RestoreAsync(id, cancellationToken);
+        return NoContent();
+    }
 }
